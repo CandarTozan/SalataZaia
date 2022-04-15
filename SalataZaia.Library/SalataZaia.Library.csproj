@@ -46,6 +46,18 @@
     <Compile Include="Abstract\Cisim.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Abstract\GizemliKutu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Abstract\Kase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Abstract\Marul.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Abstract\Sogan.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Abstract\Toplayici.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -297,6 +297,7 @@ namespace SalataZaia.Desktop
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(638, 544);
             this.Name = "MenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SalataZaia";
             this.sloganPanel.ResumeLayout(false);
             this.sloganPanel.PerformLayout();

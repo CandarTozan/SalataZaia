@@ -26,7 +26,7 @@ namespace SalataZaia.Desktop
             int _urunMiktar = urunMiktar;
             kalanSure = sure;
 
-            _oyun = new Oyun(oyunAlanPanel);
+            _oyun = new Oyun(oyunAlanPanel,urunMiktar);
 
             bilgiAdLabel.Text = _ad + " " + _soyad;
             bilgiUrunLabel.Text = _urunad;
@@ -34,7 +34,7 @@ namespace SalataZaia.Desktop
             bilgiKalan.Text = "Kalan : " + _urunMiktar;
             bilgiSureLabel.Text = sure.ToString();
         }
-
+        
         private void OyunForm_Load(object sender, EventArgs e)
         {
             _oyun.Baslat();
@@ -45,7 +45,12 @@ namespace SalataZaia.Desktop
             switch (e.KeyCode)
             {
                 case Keys.P:
-                    _oyun.DurDevam();
+                    {
+                        _oyun.DurDevam();
+                        if (!_oyun.DevamEdiyorMu) gecenSureTimer.Stop();
+                        else
+                            gecenSureTimer.Start();
+                    }
                     break;
                 case Keys.Left:
                     _oyun.ToplayiciyiHareketEttir(Library.Enum.Yon.Sola);
