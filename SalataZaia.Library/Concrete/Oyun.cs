@@ -1,57 +1,67 @@
-﻿using System;
+﻿using System.Windows.Forms;
+using SalataZaia.Library.Abstract;
 using SalataZaia.Library.Enum;
 using SalataZaia.Library.Interface;
-using System.Windows.Forms;
 
 namespace SalataZaia.Library.Concrete
 {
     public class Oyun : IOyun
     {
-
         #region Alanlar
 
-        private Timer _gecenSureTimer = new Timer { Interval = 1000 };
-        private TimeSpan _gecenSure;
+        private readonly Panel _oyunAlaniPanel;
+        private Toplayici _toplayici;
 
         #endregion
 
-        #region Olaylar
-
-        public event EventHandler GecenSureDegisti;
-
-        #endregion
-
-        #region özellikler
+        #region Özellikler
 
         public bool DevamEdiyorMu { get; private set; }
-
-        public TimeSpan GecenSure
-        {
-            get => _gecenSure;
-
-            private set
-            {
-                _gecenSure = value;
-
-                GecenSureDegisti?.Invoke(this, EventArgs.Empty);
-            }
-        }
 
         #endregion
 
         #region Metotlar
 
-        public Oyun()
+        public Oyun(Panel oyunAlaniPanel)
         {
-
+            _oyunAlaniPanel = oyunAlaniPanel;
         }
 
+        
         public void Baslat()
         {
             if (DevamEdiyorMu) return;
 
-
             DevamEdiyorMu = true;
+            ZamanalayicilariBaslat();
+
+            ToplayiciOlustur();
+        }
+
+        private void ToplayiciOlustur()
+        {
+            _toplayici = new Toplayici(_oyunAlaniPanel.Width, _oyunAlaniPanel.Height, 
+                _oyunAlaniPanel.Size);
+            _oyunAlaniPanel.Controls.Add(_toplayici);
+        }
+
+        private void ZamanalayicilariBaslat()
+        {
+           
+        }
+
+        public void DurDevam()
+        {
+            if (DevamEdiyorMu)
+            {
+                ZamanalayicilariDurdur();
+                DevamEdiyorMu = false;
+            }
+            else if (!DevamEdiyorMu)
+            {
+                ZamanalayicilariBaslat();
+                DevamEdiyorMu = true;
+            }
         }
 
         public void Bitir()
@@ -59,19 +69,22 @@ namespace SalataZaia.Library.Concrete
             if (!DevamEdiyorMu) return;
 
             DevamEdiyorMu = false;
+            ZamanalayicilariDurdur();
         }
 
-        public void Durdur()
+        private void ZamanalayicilariDurdur()
         {
+
         }
 
         public void ToplayiciyiHareketEttir(Yon yon)
         {
-            throw new NotImplementedException();
+            if (!DevamEdiyorMu) return;
+
+            _toplayici.HareketEttir(yon);
         }
 
         #endregion
-
 
     }
 }

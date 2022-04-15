@@ -7,17 +7,13 @@ using SalataZaia.Library.Enum;
 
 namespace SalataZaia.Library.Interface
 {
-    interface IOyun
+    internal interface IOyun
     {
-
-        event EventHandler GecenSureDegisti;
         bool DevamEdiyorMu { get; }
-        TimeSpan GecenSure { get; }
 
         void Baslat();
-        void Durdur();
+        void DurDevam();
         void Bitir();
         void ToplayiciyiHareketEttir(Yon yon);
-
     }
 }

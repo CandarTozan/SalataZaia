@@ -29,11 +29,12 @@ namespace SalataZaia.Desktop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OyunForm));
             this.bilgiPAnel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.marulSayiaLabel = new System.Windows.Forms.Label();
+            this.soganSayiLabel = new System.Windows.Forms.Label();
+            this.kaseSayiLabel = new System.Windows.Forms.Label();
             this.bilgiUrunLabel = new System.Windows.Forms.Label();
             this.bilgiAdLabel = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -44,6 +45,7 @@ namespace SalataZaia.Desktop
             this.bilgiSureLabel = new System.Windows.Forms.Label();
             this.lblsure = new System.Windows.Forms.Label();
             this.oyunAlanPanel = new System.Windows.Forms.Panel();
+            this.gecenSureTimer = new System.Windows.Forms.Timer(this.components);
             this.bilgiPAnel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -53,9 +55,9 @@ namespace SalataZaia.Desktop
             // bilgiPAnel
             // 
             this.bilgiPAnel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.bilgiPAnel.Controls.Add(this.label3);
-            this.bilgiPAnel.Controls.Add(this.label2);
-            this.bilgiPAnel.Controls.Add(this.label1);
+            this.bilgiPAnel.Controls.Add(this.marulSayiaLabel);
+            this.bilgiPAnel.Controls.Add(this.soganSayiLabel);
+            this.bilgiPAnel.Controls.Add(this.kaseSayiLabel);
             this.bilgiPAnel.Controls.Add(this.bilgiUrunLabel);
             this.bilgiPAnel.Controls.Add(this.bilgiAdLabel);
             this.bilgiPAnel.Controls.Add(this.pictureBox3);
@@ -71,35 +73,35 @@ namespace SalataZaia.Desktop
             this.bilgiPAnel.Size = new System.Drawing.Size(207, 681);
             this.bilgiPAnel.TabIndex = 0;
             // 
-            // label3
+            // marulSayiaLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(131, 454);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 26);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "3";
+            this.marulSayiaLabel.AutoSize = true;
+            this.marulSayiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.marulSayiaLabel.Location = new System.Drawing.Point(131, 454);
+            this.marulSayiaLabel.Name = "marulSayiaLabel";
+            this.marulSayiaLabel.Size = new System.Drawing.Size(24, 26);
+            this.marulSayiaLabel.TabIndex = 11;
+            this.marulSayiaLabel.Text = "0";
             // 
-            // label2
+            // soganSayiLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(131, 383);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 26);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "2";
+            this.soganSayiLabel.AutoSize = true;
+            this.soganSayiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.soganSayiLabel.Location = new System.Drawing.Point(131, 383);
+            this.soganSayiLabel.Name = "soganSayiLabel";
+            this.soganSayiLabel.Size = new System.Drawing.Size(24, 26);
+            this.soganSayiLabel.TabIndex = 10;
+            this.soganSayiLabel.Text = "0";
             // 
-            // label1
+            // kaseSayiLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(131, 312);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 26);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "1";
+            this.kaseSayiLabel.AutoSize = true;
+            this.kaseSayiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.kaseSayiLabel.Location = new System.Drawing.Point(131, 312);
+            this.kaseSayiLabel.Name = "kaseSayiLabel";
+            this.kaseSayiLabel.Size = new System.Drawing.Size(24, 26);
+            this.kaseSayiLabel.TabIndex = 9;
+            this.kaseSayiLabel.Text = "0";
             // 
             // bilgiUrunLabel
             // 
@@ -201,6 +203,12 @@ namespace SalataZaia.Desktop
             this.oyunAlanPanel.Size = new System.Drawing.Size(485, 681);
             this.oyunAlanPanel.TabIndex = 1;
             // 
+            // gecenSureTimer
+            // 
+            this.gecenSureTimer.Enabled = true;
+            this.gecenSureTimer.Interval = 1000;
+            this.gecenSureTimer.Tick += new System.EventHandler(this.gecenSureTimer_Tick);
+            // 
             // OyunForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +219,9 @@ namespace SalataZaia.Desktop
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OyunForm";
             this.Text = "OyunForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.OyunForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OyunForm_KeyDown);
             this.bilgiPAnel.ResumeLayout(false);
             this.bilgiPAnel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -233,8 +244,9 @@ namespace SalataZaia.Desktop
         private System.Windows.Forms.Label lblsure;
         private System.Windows.Forms.Label bilgiUrunLabel;
         private System.Windows.Forms.Label bilgiAdLabel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label marulSayiaLabel;
+        private System.Windows.Forms.Label soganSayiLabel;
+        private System.Windows.Forms.Label kaseSayiLabel;
+        private System.Windows.Forms.Timer gecenSureTimer;
     }
 }
