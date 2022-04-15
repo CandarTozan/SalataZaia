@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using SalataZaia.Library.Concrete;
 
 namespace SalataZaia.Desktop
 {

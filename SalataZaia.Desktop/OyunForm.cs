@@ -20,6 +20,14 @@ namespace SalataZaia.Desktop
             string _urunad = urunAd;
             int _urunMiktar = urunMiktar;
             int _sure = sure;
+
+            bilgiAdLabel.Text = _ad + " " + _soyad;
+            bilgiUrunLabel.Text = _urunad;
+            bilgiSureLabel.Text = _sure.ToString();
+            bilgiyapilan.Text = "Toplam Yapılan : " + 0;
+            bilgiKalan.Text = "Kalan : " + _urunMiktar;
         }
+
+        
     }
 }
