@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SalataZaia.Desktop
 {
-    public partial class Form1 : Form
+    public partial class OyunForm : Form
     {
-        public Form1()
+        public OyunForm(string ad, string Soyad, string urunAd, int urunMiktar, int sure)
         {
             InitializeComponent();
+            string _ad = ad;
+            string _soyad = Soyad;
+            string _urunad = urunAd;
+            int _urunMiktar = urunMiktar;
+            int _sure = sure;
         }
     }
 }
