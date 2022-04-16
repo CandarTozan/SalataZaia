@@ -16,7 +16,7 @@ namespace SalataZaia.Library.Concrete
         private Timer _dropOlusturmaTimer = new Timer { Interval = 1000 };
         private Timer _hareketEtmeTimer = new Timer { Interval = 100 };
         private Timer _gizemliKutuTimer = new Timer { Interval = 10000 };
-        private Timer _guncellemeTimer = new Timer { Interval = 100 , Enabled=true};
+        private Timer _guncellemeTimer = new Timer { Interval = 100 };
         private readonly List<Marul> _marullar = new List<Marul>();
         private readonly List<Sogan> _soganlar = new List<Sogan>();
         private readonly List<Kase> _kaseler = new List<Kase>();
@@ -219,6 +219,7 @@ namespace SalataZaia.Library.Concrete
             _dropOlusturmaTimer.Start();
             _hareketEtmeTimer.Start();
             _gizemliKutuTimer.Start();
+            _guncellemeTimer.Start();
         }
 
         public void DurDevam()
@@ -248,6 +249,7 @@ namespace SalataZaia.Library.Concrete
             _dropOlusturmaTimer.Stop();
             _hareketEtmeTimer.Stop();
             _gizemliKutuTimer.Stop();
+            _guncellemeTimer.Stop();
         }
 
         public void ToplayiciyiHareketEttir(Yon yon)
