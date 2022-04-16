@@ -16,21 +16,25 @@ namespace SalataZaia.Library.Concrete
         private Timer _dropOlusturmaTimer = new Timer { Interval = 1000 };
         private Timer _hareketEtmeTimer = new Timer { Interval = 100 };
         private Timer _gizemliKutuTimer = new Timer { Interval = 10000 };
+        private Timer _guncellemeTimer = new Timer { Interval = 100 , Enabled=true};
         private readonly List<Marul> _marullar = new List<Marul>();
         private readonly List<Sogan> _soganlar = new List<Sogan>();
         private readonly List<Kase> _kaseler = new List<Kase>();
         private readonly List<GizemliKutu> _gizemliKutular = new List<GizemliKutu>();
-        private int _marulSayisi;
-        private int _soganSayisi;
-        private int _kaseSayisi;
-        private int _mevcutUrunMiktar;
-        private int _istenenUrunMiktar;
+        private static readonly Random _random = new Random();
+        
 
         #endregion
 
         #region Özellikler
 
         public bool DevamEdiyorMu { get; private set; }
+        public int _marulSayisi { get; private set; }
+        public int _soganSayisi { get; private set; }
+        public int _kaseSayisi { get; private set; }
+        public int _mevcutUrunMiktar { get; private set; }
+        public int _istenenUrunMiktar { get; private set; }
+        public int skor { get; private set; }
 
         #endregion
 
@@ -43,6 +47,18 @@ namespace SalataZaia.Library.Concrete
             _dropOlusturmaTimer.Tick += DropOlusturmaTimer_Tick;
             _hareketEtmeTimer.Tick += HareketEtmeTimer_Tick;
             _gizemliKutuTimer.Tick += GizemLiKutuTimer_Tick;
+            _guncellemeTimer.Tick += GuncellemeTimer_Tick;
+        }
+
+        private void GuncellemeTimer_Tick(object sender, EventArgs e)
+        {
+            if (_marulSayisi >= 3 && _soganSayisi >= 2 && _kaseSayisi >= 1)
+            {
+                _marulSayisi -= 3;
+                _soganSayisi -= 2;
+                _kaseSayisi -= 1;
+                _mevcutUrunMiktar++;
+            }
         }
 
         private void GizemLiKutuTimer_Tick(object sender, EventArgs e)
@@ -69,6 +85,12 @@ namespace SalataZaia.Library.Concrete
             {
                 var marul = _marullar[i];
                 var carptiMİ = marul.HareketEttir(Yon.Asagi);
+                if (marul.ToplanildiMi(_toplayici))
+                {
+                    _marulSayisi++;
+                    _marullar.Remove(marul);
+                    _oyunAlaniPanel.Controls.Remove(marul);
+                }
                 if (carptiMİ)
                 {
                     _marullar.Remove(marul);
@@ -80,6 +102,12 @@ namespace SalataZaia.Library.Concrete
             {
                 var sogan = _soganlar[i];
                 var carptiMİ = sogan.HareketEttir(Yon.Asagi);
+                if (sogan.ToplanildiMi(_toplayici))
+                {
+                    _soganSayisi++;
+                    _soganlar.Remove(sogan);
+                    _oyunAlaniPanel.Controls.Remove(sogan);
+                }
                 if (carptiMİ)
                 {
                     _soganlar.Remove(sogan);
@@ -91,6 +119,12 @@ namespace SalataZaia.Library.Concrete
             {
                 var kase= _kaseler[i];
                 var carptiMİ = kase.HareketEttir(Yon.Asagi);
+                if (kase.ToplanildiMi(_toplayici))
+                {
+                    _kaseSayisi++;
+                    _kaseler.Remove(kase);
+                    _oyunAlaniPanel.Controls.Remove(kase);
+                }
                 if (carptiMİ)
                 {
                     _kaseler.Remove(kase);
@@ -102,6 +136,27 @@ namespace SalataZaia.Library.Concrete
             {
                 var gizemliKutu = _gizemliKutular[i];
                 var carptiMİ = gizemliKutu.HareketEttir(Yon.Asagi);
+                if (gizemliKutu.ToplanildiMi(_toplayici))
+                {
+                    int secim = _random.Next(2);
+                    if (secim == 0)
+                    {
+                        _marulSayisi += 5;
+                        _soganSayisi += 5;
+                        _kaseSayisi += 5;
+                        _gizemliKutular.Remove(gizemliKutu);
+                        _oyunAlaniPanel.Controls.Remove(gizemliKutu);
+                    }
+                    else if (secim == 1)
+                    {
+                        _marulSayisi -= 5;
+                        _soganSayisi -= 5;
+                        _kaseSayisi -= 5;
+                        _gizemliKutular.Remove(gizemliKutu);
+                        _oyunAlaniPanel.Controls.Remove(gizemliKutu);
+                    }
+
+                }
                 if (carptiMİ)
                 {
                     _gizemliKutular.Remove(gizemliKutu);

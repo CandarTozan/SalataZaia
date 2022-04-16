@@ -46,6 +46,7 @@ namespace SalataZaia.Desktop
             this.lblsure = new System.Windows.Forms.Label();
             this.oyunAlanPanel = new System.Windows.Forms.Panel();
             this.gecenSureTimer = new System.Windows.Forms.Timer(this.components);
+            this.guncellemeTimer = new System.Windows.Forms.Timer(this.components);
             this.bilgiPAnel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -209,6 +210,12 @@ namespace SalataZaia.Desktop
             this.gecenSureTimer.Interval = 1000;
             this.gecenSureTimer.Tick += new System.EventHandler(this.gecenSureTimer_Tick);
             // 
+            // guncellemeTimer
+            // 
+            this.guncellemeTimer.Enabled = true;
+            this.guncellemeTimer.Interval = 1;
+            this.guncellemeTimer.Tick += new System.EventHandler(this.guncellemeTimer_Tick);
+            // 
             // OyunForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,5 +255,6 @@ namespace SalataZaia.Desktop
         private System.Windows.Forms.Label soganSayiLabel;
         private System.Windows.Forms.Label kaseSayiLabel;
         private System.Windows.Forms.Timer gecenSureTimer;
+        private System.Windows.Forms.Timer guncellemeTimer;
     }
 }

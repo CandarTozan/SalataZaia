@@ -15,23 +15,28 @@ namespace SalataZaia.Desktop
     {
         int kalanSure;
         Oyun _oyun;
+        string _ad;
+        string _soyad;
+        string _urunad;
+        int _urunIstenilenMiktar;
+        int _skor;
 
-        public OyunForm(string ad, string Soyad, string urunAd, int urunMiktar, int sure)
+        public OyunForm(string ad, string Soyad, string urunAd, int urunIstenilenMiktar, int sure)
         {
             InitializeComponent();
 
-            string _ad = ad;
-            string _soyad = Soyad;
-            string _urunad = urunAd;
-            int _urunMiktar = urunMiktar;
+            _ad = ad;
+            _soyad = Soyad;
+            _urunad = urunAd;
+            _urunIstenilenMiktar = urunIstenilenMiktar;
             kalanSure = sure;
 
-            _oyun = new Oyun(oyunAlanPanel,urunMiktar);
+            _oyun = new Oyun(oyunAlanPanel,urunIstenilenMiktar);
 
             bilgiAdLabel.Text = _ad + " " + _soyad;
             bilgiUrunLabel.Text = _urunad;
             bilgiyapilan.Text = "Toplam Yapılan : " + 0;
-            bilgiKalan.Text = "Kalan : " + _urunMiktar;
+            bilgiKalan.Text = "Kalan : " + _urunIstenilenMiktar;
             bilgiSureLabel.Text = sure.ToString();
         }
         
@@ -67,10 +72,31 @@ namespace SalataZaia.Desktop
             kalanSure -= 1;
             bilgiSureLabel.Text = kalanSure.ToString();
 
-            if (kalanSure == 0)
+            if (kalanSure <= 0)
             {
                 gecenSureTimer.Stop();
                 _oyun.Bitir();
+                MessageBox.Show("ZAMANIN BİTTİĞİ İÇİN OYUN BİTTİ :[","OYUN BİTTİ");
+                Close();
+            }
+        }
+
+        private void guncellemeTimer_Tick(object sender, EventArgs e)
+        {
+            marulSayiaLabel.Text = _oyun._marulSayisi.ToString();
+            soganSayiLabel.Text = _oyun._soganSayisi.ToString();
+            kaseSayiLabel.Text = _oyun._kaseSayisi.ToString();
+            bilgiKalan.Text = "Kalan : " + (_oyun._istenenUrunMiktar - _oyun._mevcutUrunMiktar).ToString();
+            bilgiyapilan.Text = "Toplam Yapılan : " + _oyun._mevcutUrunMiktar.ToString();
+
+            if (_oyun._mevcutUrunMiktar == _urunIstenilenMiktar)
+            {
+                gecenSureTimer.Stop();
+                guncellemeTimer.Stop();
+                _skor = _oyun.skor;
+                _oyun.Bitir();
+                MessageBox.Show(_skor.ToString(), "SKORUNUZ");
+                Close();
             }
         }
     }

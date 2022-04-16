@@ -105,5 +105,12 @@ namespace SalataZaia.Library.Abstract
 
             return Top == 0;
         }
+
+        public bool ToplanildiMi(Toplayici toplayici)
+        {
+            var toplanildiMi = toplayici.Top < Bottom && toplayici.Right > Left && toplayici.Left < Right;
+            if (toplanildiMi) return true;
+            else return false;
+        }
     }
 }
