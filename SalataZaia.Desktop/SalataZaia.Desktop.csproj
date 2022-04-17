@@ -61,6 +61,12 @@
     <Compile Include="OyunKazanıldı.Designer.cs">
       <DependentUpon>OyunKazanıldı.cs</DependentUpon>
     </Compile>
+    <Compile Include="SkorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkorForm.Designer.cs">
+      <DependentUpon>SkorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TusBilgiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OyunKazanıldı.resx">
       <DependentUpon>OyunKazanıldı.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkorForm.resx">
+      <DependentUpon>SkorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TusBilgiForm.resx">
       <DependentUpon>TusBilgiForm.cs</DependentUpon>

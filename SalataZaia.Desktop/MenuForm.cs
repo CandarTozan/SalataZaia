@@ -8,6 +8,7 @@ namespace SalataZaia.Desktop
 
         OyunForm oyunForm;
         TusBilgiForm tusBilgiForm;
+        SkorForm skorForm;
 
         public MenuForm()
         {
@@ -49,6 +50,12 @@ namespace SalataZaia.Desktop
         {
             tusBilgiForm = new TusBilgiForm();
             tusBilgiForm.ShowDialog();
+        }
+
+        private void skorBilgiPanel_Click(object sender, EventArgs e)
+        {
+            skorForm = new SkorForm();
+            skorForm.ShowDialog();
         }
     }
 }

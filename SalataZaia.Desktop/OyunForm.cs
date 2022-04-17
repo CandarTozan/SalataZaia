@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SalataZaia.Library.Concrete;
+using System.IO;
 
 namespace SalataZaia.Desktop
 {
@@ -97,11 +98,66 @@ namespace SalataZaia.Desktop
                 gecenSureTimer.Stop();
                 guncellemeTimer.Stop();
                 _skor = _oyun.skor;
+                SkorGuncelle(_skor, _ad);
                 _oyun.Bitir();
                 OyunKazanıldı oyunKazanıldı = new OyunKazanıldı(_skor);
                 oyunKazanıldı.ShowDialog();
                 Close();
             }
+        }
+
+        private void SkorGuncelle(int skor,string ad)
+        {
+            string[] skorDizi = new string[5];
+
+            string[] yeniSkor = { skor.ToString(), ad };
+
+            string dosya_you = "SkorBoard.txt";
+
+            FileStream fs = new FileStream(dosya_you, FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+
+            string yazi = sr.ReadLine();
+            for (int i = 0; yazi != null; i++)
+            {
+                skorDizi[i] = yazi;
+                yazi = sr.ReadLine();
+            }
+
+            sr.Close();
+            fs.Close();
+
+            for (int i = 0; i < skorDizi.Length; i++)
+            {
+                string[] tutucu = skorDizi[i].Split(' ');
+                if (Convert.ToInt32(yeniSkor[0]) > Convert.ToInt32(tutucu[0]))
+                {
+
+                    skorDizi[i] = yeniSkor[0] + " " + yeniSkor[1];
+                    yeniSkor = tutucu;
+                }
+
+            }
+
+            FileStream fs1 = new FileStream(dosya_you, FileMode.Open, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs1);
+
+            for (int i = 0; i < skorDizi.Length; i++)
+            {
+                if (i == skorDizi.Length - 1)
+                {
+                    sw.Write(skorDizi[i]);
+                }
+                else
+                {
+                    sw.WriteLine(skorDizi[i]);
+                }
+
+            }
+
+            sw.Flush();
+            sw.Close();
+            fs1.Close();
         }
     }
 }

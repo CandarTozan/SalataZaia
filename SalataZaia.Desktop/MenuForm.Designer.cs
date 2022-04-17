@@ -116,6 +116,7 @@ namespace SalataZaia.Desktop
             this.skorBilgiPanel.Size = new System.Drawing.Size(294, 20);
             this.skorBilgiPanel.TabIndex = 3;
             this.skorBilgiPanel.Text = "En iyi skorları görüntelemek için tıklayınız.";
+            this.skorBilgiPanel.Click += new System.EventHandler(this.skorBilgiPanel_Click);
             // 
             // baslatPct
             // 
