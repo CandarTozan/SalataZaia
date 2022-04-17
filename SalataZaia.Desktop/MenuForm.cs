@@ -24,9 +24,9 @@ namespace SalataZaia.Desktop
             if (!DolduMu()) return;
             else
             {
-                int sure = Convert.ToInt32(suretxt.Text);
+                int sure = Convert.ToInt32(sureGiris.Value);
                 oyunForm = new OyunForm(adtxt.Text, soyadtxt.Text, uruntxt.Text,
-                Convert.ToInt32(miktartxt.Text), sure);
+                Convert.ToInt32(miktarGiris.Value), sure);
                 oyunForm.ShowDialog();
             }
         }
@@ -35,24 +35,10 @@ namespace SalataZaia.Desktop
         private bool DolduMu()
         {
             if (String.IsNullOrEmpty(adtxt.Text) || String.IsNullOrEmpty(soyadtxt.Text)
-                || String.IsNullOrEmpty(uruntxt.Text) || String.IsNullOrEmpty(miktartxt.Text)
-                || String.IsNullOrEmpty(suretxt.Text)) return false;
+                || String.IsNullOrEmpty(uruntxt.Text)) return false;
 
             return true;
         }
-
-        //miktara sadece sayı girilmesi sağlayan fonksiyon
-        private void miktartxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        //süreye sadece sayı girilmesi sağlayan fonksiyon
-        private void suretxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
         //tuş ve oyun bilgi ekranını açan fonkisyon
         private void tusBilgiPanel_Click(object sender, EventArgs e)
         {

@@ -41,8 +41,6 @@ namespace SalataZaia.Desktop
             this.anaMenuPanel = new System.Windows.Forms.Panel();
             this.musteriBilgiPanel = new System.Windows.Forms.Panel();
             this.baslatButton = new System.Windows.Forms.Button();
-            this.suretxt = new System.Windows.Forms.TextBox();
-            this.miktartxt = new System.Windows.Forms.TextBox();
             this.uruntxt = new System.Windows.Forms.TextBox();
             this.soyadtxt = new System.Windows.Forms.TextBox();
             this.adtxt = new System.Windows.Forms.TextBox();
@@ -51,12 +49,16 @@ namespace SalataZaia.Desktop
             this.talepEdileUrunLabel = new System.Windows.Forms.Label();
             this.musteriSoyadLabel = new System.Windows.Forms.Label();
             this.musteriAdLabel = new System.Windows.Forms.Label();
+            this.miktarGiris = new System.Windows.Forms.NumericUpDown();
+            this.sureGiris = new System.Windows.Forms.NumericUpDown();
             this.sloganPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.baslatPct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yonPct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siralamaPct)).BeginInit();
             this.anaMenuPanel.SuspendLayout();
             this.musteriBilgiPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.miktarGiris)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sureGiris)).BeginInit();
             this.SuspendLayout();
             // 
             // sloganPanel
@@ -167,9 +169,9 @@ namespace SalataZaia.Desktop
             // 
             this.musteriBilgiPanel.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.musteriBilgiPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.musteriBilgiPanel.Controls.Add(this.miktarGiris);
+            this.musteriBilgiPanel.Controls.Add(this.sureGiris);
             this.musteriBilgiPanel.Controls.Add(this.baslatButton);
-            this.musteriBilgiPanel.Controls.Add(this.suretxt);
-            this.musteriBilgiPanel.Controls.Add(this.miktartxt);
             this.musteriBilgiPanel.Controls.Add(this.uruntxt);
             this.musteriBilgiPanel.Controls.Add(this.soyadtxt);
             this.musteriBilgiPanel.Controls.Add(this.adtxt);
@@ -195,28 +197,10 @@ namespace SalataZaia.Desktop
             this.baslatButton.UseVisualStyleBackColor = false;
             this.baslatButton.Click += new System.EventHandler(this.baslatButton_Click);
             // 
-            // suretxt
-            // 
-            this.suretxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.suretxt.Location = new System.Drawing.Point(215, 130);
-            this.suretxt.Name = "suretxt";
-            this.suretxt.Size = new System.Drawing.Size(133, 26);
-            this.suretxt.TabIndex = 9;
-            this.suretxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.suretxt_KeyPress);
-            // 
-            // miktartxt
-            // 
-            this.miktartxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.miktartxt.Location = new System.Drawing.Point(215, 102);
-            this.miktartxt.Name = "miktartxt";
-            this.miktartxt.Size = new System.Drawing.Size(133, 26);
-            this.miktartxt.TabIndex = 8;
-            this.miktartxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.miktartxt_KeyPress);
-            // 
             // uruntxt
             // 
             this.uruntxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.uruntxt.Location = new System.Drawing.Point(215, 74);
+            this.uruntxt.Location = new System.Drawing.Point(215, 72);
             this.uruntxt.Name = "uruntxt";
             this.uruntxt.Size = new System.Drawing.Size(133, 26);
             this.uruntxt.TabIndex = 7;
@@ -224,7 +208,7 @@ namespace SalataZaia.Desktop
             // soyadtxt
             // 
             this.soyadtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.soyadtxt.Location = new System.Drawing.Point(215, 46);
+            this.soyadtxt.Location = new System.Drawing.Point(215, 45);
             this.soyadtxt.Name = "soyadtxt";
             this.soyadtxt.Size = new System.Drawing.Size(133, 26);
             this.soyadtxt.TabIndex = 6;
@@ -287,6 +271,59 @@ namespace SalataZaia.Desktop
             this.musteriAdLabel.TabIndex = 0;
             this.musteriAdLabel.Text = "Müşteri Adı               :";
             // 
+            // miktarGiris
+            // 
+            this.miktarGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.miktarGiris.Location = new System.Drawing.Point(215, 99);
+            this.miktarGiris.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.miktarGiris.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.miktarGiris.Name = "miktarGiris";
+            this.miktarGiris.Size = new System.Drawing.Size(133, 26);
+            this.miktarGiris.TabIndex = 8;
+            this.miktarGiris.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.miktarGiris.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // sureGiris
+            // 
+            this.sureGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.sureGiris.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.sureGiris.Location = new System.Drawing.Point(215, 126);
+            this.sureGiris.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sureGiris.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.sureGiris.Name = "sureGiris";
+            this.sureGiris.Size = new System.Drawing.Size(133, 26);
+            this.sureGiris.TabIndex = 9;
+            this.sureGiris.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.sureGiris.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +349,8 @@ namespace SalataZaia.Desktop
             this.anaMenuPanel.PerformLayout();
             this.musteriBilgiPanel.ResumeLayout(false);
             this.musteriBilgiPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.miktarGiris)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sureGiris)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,12 +372,12 @@ namespace SalataZaia.Desktop
         private System.Windows.Forms.Label talepEdileUrunLabel;
         private System.Windows.Forms.Label musteriSoyadLabel;
         private System.Windows.Forms.Label musteriAdLabel;
-        private System.Windows.Forms.TextBox suretxt;
-        private System.Windows.Forms.TextBox miktartxt;
         private System.Windows.Forms.TextBox uruntxt;
         private System.Windows.Forms.TextBox soyadtxt;
         private System.Windows.Forms.TextBox adtxt;
         private System.Windows.Forms.Button baslatButton;
+        private System.Windows.Forms.NumericUpDown miktarGiris;
+        private System.Windows.Forms.NumericUpDown sureGiris;
     }
 }
 
