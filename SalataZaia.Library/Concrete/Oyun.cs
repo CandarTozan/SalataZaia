@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Geliştirici : Candar TOZAN
+// Öğrenci NO : B211200027
+// Nesneye Dayalı Programlama 1. Proje / Tasarım
+
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SalataZaia.Library.Abstract;
@@ -52,6 +56,7 @@ namespace SalataZaia.Library.Concrete
             _guncellemeTimer.Tick += GuncellemeTimer_Tick;
         }
 
+        // gerekli sayıda malzemeler toplandığında ürün sayısını arttırıp malzemeri azaltıyor
         private void GuncellemeTimer_Tick(object sender, EventArgs e)
         {
             if (_marulSayisi >= 3 && _soganSayisi >= 2 && _kaseSayisi >= 1)
@@ -63,6 +68,7 @@ namespace SalataZaia.Library.Concrete
             }
         }
 
+        //her tick olduğunda gizemli kutu oluşur ve odropların düşüş hızı artar
         private void GizemLiKutuTimer_Tick(object sender, EventArgs e)
         {
             GizemliKutuOlustur();
@@ -91,7 +97,8 @@ namespace SalataZaia.Library.Concrete
             DroplariHareketEttir();
         }
 
-        private void DroplariHareketEttir()  //Dropları hareket ettiriyor, toplanma ve çarpma durumuna göre değişiklik yapıyor
+        //Dropları hareket ettiriyor, aşağıya çarparsa se toplanırsa formdan siliniyor ardında toplanan malzeme arttırılıyor
+        private void DroplariHareketEttir()  
         {
             for (int i = _marullar.Count - 1; i >= 0; i--)
             {
@@ -186,8 +193,10 @@ namespace SalataZaia.Library.Concrete
             DropOlustur();
         }
 
-        private static readonly Random droprandom = new Random();  //Rasgele oluşturulacak drop seçimi için sayi üretecek random
+        //Rasgele oluşturulacak drop seçimi için sayi üretecek random
+        private static readonly Random droprandom = new Random();  
 
+        //her çalıştığında rastgele drop oluşturuyor
         private void DropOlustur()
         {
             int secim = droprandom.Next(3);
@@ -213,6 +222,7 @@ namespace SalataZaia.Library.Concrete
             
         }
 
+        //Oyunu başlatır ve toplayıcıyı ooluşturur
         public void Baslat()
         {
             if (DevamEdiyorMu) return;
@@ -238,6 +248,7 @@ namespace SalataZaia.Library.Concrete
             _guncellemeTimer.Start();
         }
 
+        // eğer oyun durmuyorsa durdurur duruyorsa devam ettirir
         public void DurDevam()
         {
             if (DevamEdiyorMu)
@@ -252,6 +263,7 @@ namespace SalataZaia.Library.Concrete
             }
         }
 
+        //oyunu bitirir
         public void Bitir()
         {
             if (!DevamEdiyorMu) return;
@@ -268,6 +280,7 @@ namespace SalataZaia.Library.Concrete
             _guncellemeTimer.Stop();
         }
 
+        //verilen yöne göre toplayıcıyın hareket ettirir
         public void ToplayiciyiHareketEttir(Yon yon)
         {
             if (!DevamEdiyorMu) return;

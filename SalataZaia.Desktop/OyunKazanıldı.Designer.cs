@@ -1,5 +1,4 @@
-﻿
-namespace SalataZaia.Desktop
+﻿namespace SalataZaia.Desktop
 {
     partial class OyunKazanıldı
     {

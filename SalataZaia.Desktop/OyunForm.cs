@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Geliştirici : Candar TOZAN
+// Öğrenci NO : B211200027
+// Nesneye Dayalı Programlama 1. Proje / Tasarım
+
+using System;
 using System.Windows.Forms;
 using SalataZaia.Library.Concrete;
 using System.IO;
@@ -48,6 +45,7 @@ namespace SalataZaia.Desktop
 
         private void OyunForm_KeyDown(object sender, KeyEventArgs e)
         {
+            //oyun esnasında basılan tuşa göre gerekli olan eylemi yapar
             switch (e.KeyCode)
             {
                 case Keys.P:
@@ -68,11 +66,13 @@ namespace SalataZaia.Desktop
     
         }
 
+        //kalan süreyi ayarlar
         private void gecenSureTimer_Tick(object sender, EventArgs e)
         {
             kalanSure -= 1;
             bilgiSureLabel.Text = kalanSure.ToString();
 
+            //zamana bittiğinde oyunu bitirir
             if (kalanSure <= 0)
             {
                 gecenSureTimer.Stop();
@@ -83,6 +83,7 @@ namespace SalataZaia.Desktop
             }
         }
 
+        //anlık verileri günceller
         private void guncellemeTimer_Tick(object sender, EventArgs e)
         {
             marulSayiaLabel.Text = _oyun._marulSayisi.ToString();
@@ -93,6 +94,7 @@ namespace SalataZaia.Desktop
             _skor = _oyun.skor;
             bilgiSkor.Text = "Skor : " + _skor;
 
+            //yeterli sayıda ürün yapılsıysa oyunu bitirir ve oyun kazıldı formunu açar
             if (_oyun._mevcutUrunMiktar == _urunIstenilenMiktar)
             {
                 gecenSureTimer.Stop();
@@ -106,6 +108,7 @@ namespace SalataZaia.Desktop
             }
         }
 
+        //oyundan gelen skorla skor tablosunu dosya okuma ve yazma ile gerekirse günceller
         private void SkorGuncelle(int skor,string ad)
         {
             string[] skorDizi = new string[5];
@@ -118,6 +121,7 @@ namespace SalataZaia.Desktop
             StreamReader sr = new StreamReader(fs);
 
             string yazi = sr.ReadLine();
+            //veriler diziye alınır
             for (int i = 0; yazi != null; i++)
             {
                 skorDizi[i] = yazi;
@@ -127,6 +131,7 @@ namespace SalataZaia.Desktop
             sr.Close();
             fs.Close();
 
+            //yeni skor en yüksek skorlarla karşılatırılır vr gerekirse yer değiştirilir
             for (int i = 0; i < skorDizi.Length; i++)
             {
                 string[] tutucu = skorDizi[i].Split(' ');
@@ -142,6 +147,7 @@ namespace SalataZaia.Desktop
             FileStream fs1 = new FileStream(dosya_you, FileMode.Open, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs1);
 
+            //dizideki skorlar dosayaya aktarılır
             for (int i = 0; i < skorDizi.Length; i++)
             {
                 if (i == skorDizi.Length - 1)

@@ -46,19 +46,19 @@
     <Compile Include="Abstract\Cisim.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Abstract\GizemliKutu.cs">
+    <Compile Include="Concrete\GizemliKutu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Abstract\Kase.cs">
+    <Compile Include="Concrete\Kase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Abstract\Marul.cs">
+    <Compile Include="Concrete\Marul.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Abstract\Sogan.cs">
+    <Compile Include="Concrete\Sogan.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Abstract\Toplayici.cs">
+    <Compile Include="Concrete\Toplayici.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Concrete\Oyun.cs" />
@@ -67,8 +67,6 @@
     <Compile Include="Interface\IOyun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Static\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

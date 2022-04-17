@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Geliştirici : Candar TOZAN
+// Öğrenci NO : B211200027
+// Nesneye Dayalı Programlama 1. Proje / Tasarım
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SalataZaia.Library.Enum;
@@ -12,6 +16,7 @@ namespace SalataZaia.Library.Abstract
 
         public int HareketMesafesi { get; protected set; }
 
+        //değerler daha kolay ulaşmamızı ve değiştirmemizi sağlar
         public new int Right
         {
             get => base.Right;
@@ -43,6 +48,7 @@ namespace SalataZaia.Library.Abstract
             SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
+        //verilen yöne göre gerekli hareket fonksiyonunu çağırır
         public bool HareketEttir(Yon yon)
         {
             switch (yon)

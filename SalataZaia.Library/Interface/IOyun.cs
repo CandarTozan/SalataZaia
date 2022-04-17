@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Geliştirici : Candar TOZAN
+// Öğrenci NO : B211200027
+// Nesneye Dayalı Programlama 1. Proje / Tasarım
+
 using SalataZaia.Library.Enum;
 
 namespace SalataZaia.Library.Interface

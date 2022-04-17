@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿// Geliştirici : Candar TOZAN
+// Öğrenci NO : B211200027
+// Nesneye Dayalı Programlama 1. Proje / Tasarım
+
+//en iyi skorların gözterildiği tablo
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SalataZaia.Desktop
@@ -19,11 +17,13 @@ namespace SalataZaia.Desktop
             SkorGoster();
         }
 
+        //tıklandığında formu kapatır
         private void cıkısButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        //skor text dosyasından çekilir ve label'ın text'ine yazılır
         private void SkorGoster()
         { 
             string dosya_you = "SkorBoard.txt";
