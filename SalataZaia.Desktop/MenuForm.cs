@@ -7,6 +7,7 @@ namespace SalataZaia.Desktop
     {
 
         OyunForm oyunForm;
+        TusBilgiForm tusBilgiForm;
 
         public MenuForm()
         {
@@ -32,6 +33,22 @@ namespace SalataZaia.Desktop
                 || String.IsNullOrEmpty(suretxt.Text)) return false;
 
             return true;
+        }
+
+        private void miktartxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void suretxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void tusBilgiPanel_Click(object sender, EventArgs e)
+        {
+            tusBilgiForm = new TusBilgiForm();
+            tusBilgiForm.ShowDialog();
         }
     }
 }

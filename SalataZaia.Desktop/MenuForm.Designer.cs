@@ -104,6 +104,7 @@ namespace SalataZaia.Desktop
             this.tusBilgiPanel.Size = new System.Drawing.Size(252, 20);
             this.tusBilgiPanel.TabIndex = 2;
             this.tusBilgiPanel.Text = "Oyun tuş takımı bilgisi için tıklayınız.";
+            this.tusBilgiPanel.Click += new System.EventHandler(this.tusBilgiPanel_Click);
             // 
             // skorBilgiPanel
             // 
@@ -200,6 +201,7 @@ namespace SalataZaia.Desktop
             this.suretxt.Name = "suretxt";
             this.suretxt.Size = new System.Drawing.Size(133, 26);
             this.suretxt.TabIndex = 9;
+            this.suretxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.suretxt_KeyPress);
             // 
             // miktartxt
             // 
@@ -208,6 +210,7 @@ namespace SalataZaia.Desktop
             this.miktartxt.Name = "miktartxt";
             this.miktartxt.Size = new System.Drawing.Size(133, 26);
             this.miktartxt.TabIndex = 8;
+            this.miktartxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.miktartxt_KeyPress);
             // 
             // uruntxt
             // 

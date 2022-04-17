@@ -47,6 +47,7 @@ namespace SalataZaia.Desktop
             this.oyunAlanPanel = new System.Windows.Forms.Panel();
             this.gecenSureTimer = new System.Windows.Forms.Timer(this.components);
             this.guncellemeTimer = new System.Windows.Forms.Timer(this.components);
+            this.bilgiSkor = new System.Windows.Forms.Label();
             this.bilgiPAnel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -56,6 +57,7 @@ namespace SalataZaia.Desktop
             // bilgiPAnel
             // 
             this.bilgiPAnel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.bilgiPAnel.Controls.Add(this.bilgiSkor);
             this.bilgiPAnel.Controls.Add(this.marulSayiaLabel);
             this.bilgiPAnel.Controls.Add(this.soganSayiLabel);
             this.bilgiPAnel.Controls.Add(this.kaseSayiLabel);
@@ -159,7 +161,7 @@ namespace SalataZaia.Desktop
             // bilgiKalan
             // 
             this.bilgiKalan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.bilgiKalan.Location = new System.Drawing.Point(27, 214);
+            this.bilgiKalan.Location = new System.Drawing.Point(27, 209);
             this.bilgiKalan.Name = "bilgiKalan";
             this.bilgiKalan.Size = new System.Drawing.Size(157, 20);
             this.bilgiKalan.TabIndex = 3;
@@ -216,6 +218,16 @@ namespace SalataZaia.Desktop
             this.guncellemeTimer.Interval = 1;
             this.guncellemeTimer.Tick += new System.EventHandler(this.guncellemeTimer_Tick);
             // 
+            // bilgiSkor
+            // 
+            this.bilgiSkor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.bilgiSkor.Location = new System.Drawing.Point(27, 255);
+            this.bilgiSkor.Name = "bilgiSkor";
+            this.bilgiSkor.Size = new System.Drawing.Size(157, 20);
+            this.bilgiSkor.TabIndex = 12;
+            this.bilgiSkor.Text = "Skor : 0";
+            this.bilgiSkor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // OyunForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +268,6 @@ namespace SalataZaia.Desktop
         private System.Windows.Forms.Label kaseSayiLabel;
         private System.Windows.Forms.Timer gecenSureTimer;
         private System.Windows.Forms.Timer guncellemeTimer;
+        private System.Windows.Forms.Label bilgiSkor;
     }
 }

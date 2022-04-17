@@ -15,7 +15,7 @@ namespace SalataZaia.Library.Concrete
         private Toplayici _toplayici;
         private Timer _dropOlusturmaTimer = new Timer { Interval = 1000 };
         private Timer _hareketEtmeTimer = new Timer { Interval = 100 };
-        private Timer _gizemliKutuTimer = new Timer { Interval = 10000 };
+        private Timer _gizemliKutuTimer = new Timer { Interval = 10000 };  //Her Gizemli Kutu oluştuğunda oyun dropların düşme hızı artıyor.
         private Timer _guncellemeTimer = new Timer { Interval = 100 };
         private readonly List<Marul> _marullar = new List<Marul>();
         private readonly List<Sogan> _soganlar = new List<Sogan>();
@@ -35,6 +35,7 @@ namespace SalataZaia.Library.Concrete
         public int _mevcutUrunMiktar { get; private set; }
         public int _istenenUrunMiktar { get; private set; }
         public int skor { get; private set; }
+        private int _oyunHizi { get; set; }
 
         #endregion
 
@@ -44,6 +45,7 @@ namespace SalataZaia.Library.Concrete
         {
             _oyunAlaniPanel = oyunAlaniPanel;
             _istenenUrunMiktar = istenilenUrunMiktar;
+            _oyunHizi = 100;
             _dropOlusturmaTimer.Tick += DropOlusturmaTimer_Tick;
             _hareketEtmeTimer.Tick += HareketEtmeTimer_Tick;
             _gizemliKutuTimer.Tick += GizemLiKutuTimer_Tick;
@@ -64,6 +66,16 @@ namespace SalataZaia.Library.Concrete
         private void GizemLiKutuTimer_Tick(object sender, EventArgs e)
         {
             GizemliKutuOlustur();
+            OyunuHizlandir();
+        }
+
+        private void OyunuHizlandir()
+        {
+            if (_oyunHizi > 10)
+            {
+                _oyunHizi -= 10;
+                _hareketEtmeTimer.Interval = _oyunHizi;
+            }
         }
 
         private void GizemliKutuOlustur()
@@ -79,7 +91,7 @@ namespace SalataZaia.Library.Concrete
             DroplariHareketEttir();
         }
 
-        private void DroplariHareketEttir()
+        private void DroplariHareketEttir()  //Dropları hareket ettiriyor, toplanma ve çarpma durumuna göre değişiklik yapıyor
         {
             for (int i = _marullar.Count - 1; i >= 0; i--)
             {
@@ -90,6 +102,7 @@ namespace SalataZaia.Library.Concrete
                     _marulSayisi++;
                     _marullar.Remove(marul);
                     _oyunAlaniPanel.Controls.Remove(marul);
+                    skor += 10;
                 }
                 if (carptiMİ)
                 {
@@ -107,6 +120,7 @@ namespace SalataZaia.Library.Concrete
                     _soganSayisi++;
                     _soganlar.Remove(sogan);
                     _oyunAlaniPanel.Controls.Remove(sogan);
+                    skor += 10;
                 }
                 if (carptiMİ)
                 {
@@ -124,6 +138,7 @@ namespace SalataZaia.Library.Concrete
                     _kaseSayisi++;
                     _kaseler.Remove(kase);
                     _oyunAlaniPanel.Controls.Remove(kase);
+                    skor += 10;
                 }
                 if (carptiMİ)
                 {
@@ -146,6 +161,7 @@ namespace SalataZaia.Library.Concrete
                         _kaseSayisi += 5;
                         _gizemliKutular.Remove(gizemliKutu);
                         _oyunAlaniPanel.Controls.Remove(gizemliKutu);
+                        skor += 500;
                     }
                     else if (secim == 1)
                     {
@@ -154,8 +170,8 @@ namespace SalataZaia.Library.Concrete
                         _kaseSayisi -= 5;
                         _gizemliKutular.Remove(gizemliKutu);
                         _oyunAlaniPanel.Controls.Remove(gizemliKutu);
+                        skor -= 500;
                     }
-
                 }
                 if (carptiMİ)
                 {
@@ -170,7 +186,7 @@ namespace SalataZaia.Library.Concrete
             DropOlustur();
         }
 
-        private static readonly Random droprandom = new Random();
+        private static readonly Random droprandom = new Random();  //Rasgele oluşturulacak drop seçimi için sayi üretecek random
 
         private void DropOlustur()
         {

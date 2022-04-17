@@ -88,6 +88,8 @@ namespace SalataZaia.Desktop
             kaseSayiLabel.Text = _oyun._kaseSayisi.ToString();
             bilgiKalan.Text = "Kalan : " + (_oyun._istenenUrunMiktar - _oyun._mevcutUrunMiktar).ToString();
             bilgiyapilan.Text = "Toplam Yapılan : " + _oyun._mevcutUrunMiktar.ToString();
+            _skor = _oyun.skor;
+            bilgiSkor.Text = "Skor : " + _skor;
 
             if (_oyun._mevcutUrunMiktar == _urunIstenilenMiktar)
             {
