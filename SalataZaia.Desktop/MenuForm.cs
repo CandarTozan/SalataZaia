@@ -22,7 +22,7 @@ namespace SalataZaia.Desktop
                 int sure = Convert.ToInt32(suretxt.Text);
                 oyunForm = new OyunForm(adtxt.Text, soyadtxt.Text, uruntxt.Text,
                 Convert.ToInt32(miktartxt.Text), sure);
-                oyunForm.Show();
+                oyunForm.ShowDialog();
             }
         }
 

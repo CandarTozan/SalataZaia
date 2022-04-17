@@ -76,7 +76,8 @@ namespace SalataZaia.Desktop
             {
                 gecenSureTimer.Stop();
                 _oyun.Bitir();
-                MessageBox.Show("ZAMANIN BİTTİĞİ İÇİN OYUN BİTTİ :[","OYUN BİTTİ");
+                OyunBitti oyunBitti = new OyunBitti();
+                oyunBitti.ShowDialog();
                 Close();
             }
         }
@@ -97,7 +98,8 @@ namespace SalataZaia.Desktop
                 guncellemeTimer.Stop();
                 _skor = _oyun.skor;
                 _oyun.Bitir();
-                MessageBox.Show(_skor.ToString(), "SKORUNUZ");
+                OyunKazanıldı oyunKazanıldı = new OyunKazanıldı(_skor);
+                oyunKazanıldı.ShowDialog();
                 Close();
             }
         }

@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OyunBitti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OyunBitti.Designer.cs">
+      <DependentUpon>OyunBitti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OyunKazanıldı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OyunKazanıldı.Designer.cs">
+      <DependentUpon>OyunKazanıldı.cs</DependentUpon>
+    </Compile>
     <Compile Include="TusBilgiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +81,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="OyunBitti.resx">
+      <DependentUpon>OyunBitti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OyunKazanıldı.resx">
+      <DependentUpon>OyunKazanıldı.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TusBilgiForm.resx">
       <DependentUpon>TusBilgiForm.cs</DependentUpon>
     </EmbeddedResource>

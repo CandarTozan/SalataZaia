@@ -101,9 +101,9 @@ namespace SalataZaia.Desktop
             this.tusBilgiPanel.ForeColor = System.Drawing.Color.White;
             this.tusBilgiPanel.Location = new System.Drawing.Point(122, 105);
             this.tusBilgiPanel.Name = "tusBilgiPanel";
-            this.tusBilgiPanel.Size = new System.Drawing.Size(252, 20);
+            this.tusBilgiPanel.Size = new System.Drawing.Size(272, 20);
             this.tusBilgiPanel.TabIndex = 2;
-            this.tusBilgiPanel.Text = "Oyun tuş takımı bilgisi için tıklayınız.";
+            this.tusBilgiPanel.Text = "Oyun ve tuş takımı bilgisi için tıklayınız.\r\n";
             this.tusBilgiPanel.Click += new System.EventHandler(this.tusBilgiPanel_Click);
             // 
             // skorBilgiPanel
@@ -264,7 +264,7 @@ namespace SalataZaia.Desktop
             this.talepEdileUrunLabel.Name = "talepEdileUrunLabel";
             this.talepEdileUrunLabel.Size = new System.Drawing.Size(183, 28);
             this.talepEdileUrunLabel.TabIndex = 2;
-            this.talepEdileUrunLabel.Text = "Talep Edilen Ürün     :";
+            this.talepEdileUrunLabel.Text = "Ürün Adı                   :";
             // 
             // musteriSoyadLabel
             // 
