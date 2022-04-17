@@ -40,6 +40,8 @@ namespace SalataZaia.Desktop
             this.siralamaPct = new System.Windows.Forms.PictureBox();
             this.anaMenuPanel = new System.Windows.Forms.Panel();
             this.musteriBilgiPanel = new System.Windows.Forms.Panel();
+            this.miktarGiris = new System.Windows.Forms.NumericUpDown();
+            this.sureGiris = new System.Windows.Forms.NumericUpDown();
             this.baslatButton = new System.Windows.Forms.Button();
             this.uruntxt = new System.Windows.Forms.TextBox();
             this.soyadtxt = new System.Windows.Forms.TextBox();
@@ -49,8 +51,6 @@ namespace SalataZaia.Desktop
             this.talepEdileUrunLabel = new System.Windows.Forms.Label();
             this.musteriSoyadLabel = new System.Windows.Forms.Label();
             this.musteriAdLabel = new System.Windows.Forms.Label();
-            this.miktarGiris = new System.Windows.Forms.NumericUpDown();
-            this.sureGiris = new System.Windows.Forms.NumericUpDown();
             this.sloganPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.baslatPct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yonPct)).BeginInit();
@@ -185,6 +185,59 @@ namespace SalataZaia.Desktop
             this.musteriBilgiPanel.Size = new System.Drawing.Size(375, 206);
             this.musteriBilgiPanel.TabIndex = 7;
             // 
+            // miktarGiris
+            // 
+            this.miktarGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.miktarGiris.Location = new System.Drawing.Point(215, 99);
+            this.miktarGiris.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.miktarGiris.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.miktarGiris.Name = "miktarGiris";
+            this.miktarGiris.Size = new System.Drawing.Size(133, 26);
+            this.miktarGiris.TabIndex = 8;
+            this.miktarGiris.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.miktarGiris.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // sureGiris
+            // 
+            this.sureGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.sureGiris.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.sureGiris.Location = new System.Drawing.Point(215, 126);
+            this.sureGiris.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sureGiris.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.sureGiris.Name = "sureGiris";
+            this.sureGiris.Size = new System.Drawing.Size(133, 26);
+            this.sureGiris.TabIndex = 9;
+            this.sureGiris.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.sureGiris.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
             // baslatButton
             // 
             this.baslatButton.BackColor = System.Drawing.Color.LightGreen;
@@ -270,59 +323,6 @@ namespace SalataZaia.Desktop
             this.musteriAdLabel.Size = new System.Drawing.Size(183, 28);
             this.musteriAdLabel.TabIndex = 0;
             this.musteriAdLabel.Text = "Müşteri Adı               :";
-            // 
-            // miktarGiris
-            // 
-            this.miktarGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.miktarGiris.Location = new System.Drawing.Point(215, 99);
-            this.miktarGiris.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.miktarGiris.Minimum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.miktarGiris.Name = "miktarGiris";
-            this.miktarGiris.Size = new System.Drawing.Size(133, 26);
-            this.miktarGiris.TabIndex = 8;
-            this.miktarGiris.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.miktarGiris.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // sureGiris
-            // 
-            this.sureGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.sureGiris.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.sureGiris.Location = new System.Drawing.Point(215, 126);
-            this.sureGiris.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.sureGiris.Minimum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.sureGiris.Name = "sureGiris";
-            this.sureGiris.Size = new System.Drawing.Size(133, 26);
-            this.sureGiris.TabIndex = 9;
-            this.sureGiris.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.sureGiris.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
             // 
             // MenuForm
             // 
