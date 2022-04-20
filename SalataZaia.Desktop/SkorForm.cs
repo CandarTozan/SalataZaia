@@ -30,7 +30,7 @@ namespace SalataZaia.Desktop
 
             skorLabel.Text = null;
 
-            FileStream fs = new FileStream(dosya_you, FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(dosya_you, FileMode.OpenOrCreate, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
 
             string skor = sr.ReadLine();

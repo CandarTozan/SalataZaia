@@ -117,7 +117,7 @@ namespace SalataZaia.Desktop
 
             string dosya_you = "SkorBoard.txt";
 
-            FileStream fs = new FileStream(dosya_you, FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(dosya_you, FileMode.OpenOrCreate, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
 
             string yazi = sr.ReadLine();
