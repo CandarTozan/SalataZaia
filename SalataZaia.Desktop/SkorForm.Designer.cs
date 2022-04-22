@@ -31,8 +31,8 @@ namespace SalataZaia.Desktop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkorForm));
             this.SkorPanel = new System.Windows.Forms.Panel();
-            this.skorLabel = new System.Windows.Forms.Label();
             this.cıkısButton = new System.Windows.Forms.Button();
+            this.skorLabel = new System.Windows.Forms.Label();
             this.SkorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,16 +47,6 @@ namespace SalataZaia.Desktop
             this.SkorPanel.Size = new System.Drawing.Size(463, 339);
             this.SkorPanel.TabIndex = 0;
             // 
-            // skorLabel
-            // 
-            this.skorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.skorLabel.Location = new System.Drawing.Point(12, 33);
-            this.skorLabel.Name = "skorLabel";
-            this.skorLabel.Size = new System.Drawing.Size(435, 241);
-            this.skorLabel.TabIndex = 0;
-            this.skorLabel.Text = "0 Skor\r\n0 Skor\r\n0 Skor\r\n0 Skor\r\n0 Skor";
-            this.skorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // cıkısButton
             // 
             this.cıkısButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -69,12 +59,23 @@ namespace SalataZaia.Desktop
             this.cıkısButton.UseVisualStyleBackColor = true;
             this.cıkısButton.Click += new System.EventHandler(this.cıkısButton_Click);
             // 
+            // skorLabel
+            // 
+            this.skorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.skorLabel.Location = new System.Drawing.Point(12, 33);
+            this.skorLabel.Name = "skorLabel";
+            this.skorLabel.Size = new System.Drawing.Size(435, 241);
+            this.skorLabel.TabIndex = 0;
+            this.skorLabel.Text = "0 Skor\r\n0 Skor\r\n0 Skor\r\n0 Skor\r\n0 Skor";
+            this.skorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SkorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 339);
             this.Controls.Add(this.SkorPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SkorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
